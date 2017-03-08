@@ -4,4 +4,14 @@
   "name": "[Need cool Alpacas diversity app name here]",
   "description": "Need cool description here",
   "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "alpaca.png",
+    "default_popup": "overlay.html"
+  },
+  
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ]
 }
