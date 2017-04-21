@@ -1,4 +1,5 @@
 window.onload=function(){
+	window.speechSynthesis.cancel();
      var test = document.getElementById("cbVision");
       test.addEventListener("click", function() { 
           addRemoveInput();
