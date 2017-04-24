@@ -75,16 +75,18 @@ function speakChange(response) {
     }
 }
 
-function setGrayscale(){
-    alert('test');
+function setGrayscale(response){
+    // alert('test');
 
   if(grayscale){
+      alert('not false');
     document.body.style.filter = "";
     for(var i=0;i<document.images.length;i++)
         {
             document.images[i].style.setProperty("filter","")
         }
   } else {
+      alert('false');
     document.body.style.filter = "grayscale()";
     for(var i=0;i<document.images.length;i++)
         {
@@ -102,7 +104,9 @@ function initContentScript() {
             if (request.speakSelection) {
             console.log('speakSelection ' + request.speakSelection);
             speakChange(sendResponse);
-            } 
+            } else if (request.setGrayscale) {
+                setGrayscale(sendResponse);
+            }
             return true
         }
         
