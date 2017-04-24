@@ -55,6 +55,14 @@ document.querySelector('#btnVoice').addEventListener('click', function() {
          });
       });
 })
+
+document.querySelector('#btnGrayscale').addEventListener('click', function() {
+  chrome.tabs.query({active:true, currentWindow:true}, function(tabs) {
+         chrome.tabs.sendMessage(tabs[0].id, {'setGrayscale': true}, function(result) {
+            console.log(result.type);
+         });
+      });
+})
 // to get message from content_script
 chrome.runtime.onMessage.addListener(function(request,sender){
   console.log('overlay onMessage');

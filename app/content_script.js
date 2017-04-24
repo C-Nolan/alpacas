@@ -1,3 +1,5 @@
+var grayscale = false;
+
 function speakSelection(response) {
     var focused = document.activeElement;
     var selectedText;
@@ -71,6 +73,25 @@ function speakChange(response) {
     }else {
         speakSelection(response);
     }
+}
+
+function setGrayscale(){
+    alert('test');
+
+  if(grayscale){
+    document.body.style.filter = "";
+    for(var i=0;i<document.images.length;i++)
+        {
+            document.images[i].style.setProperty("filter","")
+        }
+  } else {
+    document.body.style.filter = "grayscale()";
+    for(var i=0;i<document.images.length;i++)
+        {
+            document.images[i].style.setProperty("filter","contrast(0)")
+        }
+  }
+  grayscale = !grayscale;
 }
 
 // init content script
