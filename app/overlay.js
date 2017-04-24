@@ -56,12 +56,16 @@ document.querySelector('#btnVoice').addEventListener('click', function() {
       });
 })
 
-document.querySelector('#btnGrayscale').addEventListener('click', function() {
-  chrome.tabs.query({active:true, currentWindow:true}, function(tabs) {
-         chrome.tabs.sendMessage(tabs[0].id, {'setGrayscale': true}, function(result) {
-            console.log(result.type);
-         });
-      });
+document.querySelector('#btnGrayscale').addEventListener('click',function() {
+  chrome.tabs.executeScript({
+    code:'document.body.style.filter = "grayscale()";for(var i=0; i<document.images.length; i++) {document.images[i].style.setProperty("filter","constrast(0)")};'
+  });
+})
+// 
+document.querySelector('#btnUnGrayscale').addEventListener('click',function() {
+  chrome.tabs.executeScript({
+    code:'document.body.style.filter = "";for(var i=0; i<document.images.length; i++) {document.images[i].style.setProperty("filter","")};'
+  });
 })
 // to get message from content_script
 chrome.runtime.onMessage.addListener(function(request,sender){
