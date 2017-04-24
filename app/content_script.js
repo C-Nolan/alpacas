@@ -1,3 +1,5 @@
+var grayscale = false;
+
 function speakSelection(response) {
     var focused = document.activeElement;
     var selectedText;
@@ -73,6 +75,27 @@ function speakChange(response) {
     }
 }
 
+function setGrayscale(response){
+    // alert('test');
+
+  if(grayscale){
+      alert('not false');
+    document.body.style.filter = "";
+    for(var i=0;i<document.images.length;i++)
+        {
+            document.images[i].style.setProperty("filter","")
+        }
+  } else {
+      alert('false');
+    document.body.style.filter = "grayscale()";
+    for(var i=0;i<document.images.length;i++)
+        {
+            document.images[i].style.setProperty("filter","contrast(0)")
+        }
+  }
+  grayscale = !grayscale;
+}
+
 // init content script
 function initContentScript() {
     // to get message from overlay
@@ -81,7 +104,9 @@ function initContentScript() {
             if (request.speakSelection) {
             console.log('speakSelection ' + request.speakSelection);
             speakChange(sendResponse);
-            } 
+            } else if (request.setGrayscale) {
+                setGrayscale(sendResponse);
+            }
             return true
         }
         
