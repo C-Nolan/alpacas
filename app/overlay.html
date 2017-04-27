@@ -11,50 +11,74 @@
 
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <style>
+      body {
+        width: 150px;
+        overflow-x: hidden;
+        color: #000;
+        background-color: lightblue;
+      }
 
+      img {
+        margin: 5px;
+        border: 2px solid black;
+        vertical-align: middle;
+      }
+    </style>
   </head>
   <body>
-      <p>
-        <input type="checkbox" id="cbVision" value="cbVision"/>
-        <label for="cbVision">Vision Assist</label>
-        <div id="inHolder"></div>
-      </p>
-      <p>
-        <input type="checkbox" id="cbContent" value="cbContent"/>
-        <label for="cbContent">Minimize Content</label>
-      </p>
-      <p>
-        <button type="button" id="btnVoice"><span class="glyphicon glyphicon-play" id='glyphicon'></span></button> 
-        <button type="button" id="btnVoicePause"><span class="glyphicon glyphicon-pause" id='glyphiconPause'></span></button> 
-        <button type="button" id="btnVoiceStop"><span class="glyphicon glyphicon-stop" id='glyphiconStop'></span></button> 
-      </p>
+   <div style="text-align: center">
+      <table style="margin: 0px auto">
+        <tr>
+          <td><button type="button" id="decreaseButton">-</button></td>
+          <td><div style="width: 50px; border-style: solid; border-width: 1px"
+                   id="displayDiv">100%</div></td>
+          <td><button type="button" id="increaseButton">+</button></td>
+        </td>
+      </table>
+      <button type="button" id="defaultButton">Reset to Default</button>
+      <div id="defaultLabel"></div>
+    </div>
+    <p>
+    <div style="visibility: hidden; border-width: 0px; height: 1px; padding: 0px">
+      <form style="border-width: 2px; border-style: solid; border-color: #7f0000">
+        <b>Mode:</b><br>
+        <input type="radio" name="modeRadio" value="automatic">automatic<br>
+        <input type="radio" name="modeRadio" value="manual">manual<br>
+        <input type="radio" name="modeRadio" value="disabled">disabled
+      </form><br>
+      <form style="border-width: 2px; border-style: solid; border-color: #7f0000">
+        <b>Scope:</b><br>
+        <input type="radio" name="scopeRadio" value="per-origin">per-origin<br>
+        <input type="radio" name="scopeRadio" value="per-tab">per-tab
+      </form>
+      <button type="button" id="setModeButton">Set Zoom Settings</button>
+    </div>
+    <p>
+   
+
+      <div style="text-align: center;">
+        <button type="button" id="btnVoice" ><span class="glyphicon glyphicon-play" id='glyphicon'></span></button> 
+        <button type="button" id="btnVoicePause" style="text-align: center;"><span class="glyphicon glyphicon-pause" id='glyphiconPause'></span></button> 
+        <button type="button" id="btnVoiceStop" style="text-align: center;"><span class="glyphicon glyphicon-stop" id='glyphiconStop'></span></button> 
+      </div>
       <p>
         <div id="speechStatus"></div>
       </p>
-      <p> 
+      <div style="text-align: center;"> 
         <button type = "button" id="btnGrayscale">Grayscale</button> 
         <button type = "button" id="btnColor">Color</button>
-      </p> 
-      <p>
-        <button type="button" id="btnSave">Save</button>
-      </p>
+      </div>
+      <div style="text-align: center; margin:5px;"> 
+         <button type="button" id="closeButton">Close</button>
+      </div>
     <script src="overlay.js"></script>
     
     
+    <script src="popup.js"></script>
   </body>
 </html>
 
-<style>
-  body {
-    min-width:200px;
-    background-color: lightblue;
-
-  }
-
-  #numVision {
-    width: 150px;
-  }
-  
   
 </style>
 

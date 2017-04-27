@@ -4,11 +4,19 @@
   "name": "[Need cool Alpacas diversity app name here]",
   "description": "Need cool description here",
   "version": "1.0",
+  "icons": {
+    "16": "img/zoom16.png",
+    "48": "img/zoom48.png"
+  },
+  "background": {
+    "scripts": ["app/background.js"],
+    "persistent": false
+  },
 
   "browser_action": {
-    "default_icon": "img/alpaca.png",
+    "default_icon": "img/zoom19.png",
     "default_popup": "app/overlay.html",
-    "default_title": "Open the Alpaca App"
+    "default_title": "Alpaca Helper"
   },
   
   "permissions": [
